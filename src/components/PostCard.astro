@@ -1,0 +1,32 @@
+---
+// components/PostCard.astro
+import { Picture } from "astro:assets";
+
+interface Props {
+    title: string;
+    description: string;
+    image: ImageMetadata;
+    link: string;
+    publishDate: Date;
+}
+const { title, description, image, link, publishDate } = Astro.props;
+---
+
+<article class="flex h-full flex-col bg-white transition-transform duration-300 ease-out hover:scale-105 dark:bg-gray-900">
+    <a href={link} class="flex h-full flex-col overflow-hidden rounded shadow dark:shadow-gray-700">
+        <div>
+            <Picture src={image} alt={title} class="w-full" loading="eager" />
+        </div>
+        <div class="flex flex-1 flex-col justify-between p-4">
+            <div>
+                <h3 class="text-lg">{title}</h3>
+                <p class="line-clamp-3">{description}</p>
+            </div>
+            <footer class="mt-auto pt-4 text-right">
+                <time datetime={publishDate.toISOString()} class="text-gray-500">
+                    {publishDate.toLocaleDateString()}
+                </time>
+            </footer>
+        </div>
+    </a>
+</article>

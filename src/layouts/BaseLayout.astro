@@ -1,0 +1,89 @@
+---
+// layouts/BaseLayout.astro
+import { getImage } from "astro:assets";
+import type { LayoutProps } from "@shared/models";
+import { Header, Footer } from "@components/global";
+import { ViewTransitions } from "astro:transitions";
+import MainImage from "@images/dark-face.png";
+import type { Thing } from "schema-dts";
+
+interface Props extends LayoutProps {}
+const Icon = await getImage({ src: MainImage, width: 32, height: 32 });
+
+const { title, description } = Astro.props;
+const imageUrl = new URL(Astro.props.imageUrl || MainImage.src, Astro.url);
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ldSchema: Thing = Astro.props.schema ?? {
+    "@type": "WebPage",
+    "@id": `${canonicalURL}#webpage`,
+    name: title,
+    description,
+};
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        {/* Global Metadata */}
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/ico" href={Icon.src} />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
+        <base href="/" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href={canonicalURL} />
+
+        {/* Primary Meta Tags */}
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={imageUrl} />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={imageUrl} />
+
+        {/* schema.org */}
+        <script type="application/ld+json" is:inline set:html={JSON.stringify(ldSchema)} />
+
+        {/* Theme Switcher */}
+        <script is:inline data-astro-rerun>
+            document.documentElement.classList[localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "add" : "remove"]("dark");
+        </script>
+
+        <ViewTransitions />
+
+        {/* Aditional HEAD elements */}
+        <slot name="head" />
+    </head>
+    <body class="bg-gray-50 dark:bg-gray-950 dark:text-white">
+        {/* Root element */}
+        <div class="flex min-h-full flex-col">
+            <Header />
+            <main class="flex-grow">
+                <slot />
+            </main>
+            <!-- <Footer /> -->
+            <Footer />
+        </div>
+    </body>
+</html>
+
+{/* Global Styles */}
+<style lang="scss" is:global>
+    html,
+    body {
+        height: 100%;
+    }
+</style>

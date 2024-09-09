@@ -1,0 +1,15 @@
+---
+// layouts/MarkdownBaseLayout.astro
+import Layout from "./BaseLayout.astro";
+import type { LayoutProps } from "@shared/models";
+
+interface Props {
+    frontmatter: LayoutProps;
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout {...frontmatter}>
+    <slot />
+</Layout>

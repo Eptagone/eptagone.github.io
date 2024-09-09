@@ -1,0 +1,67 @@
+---
+// components/Header.astro
+import { Picture } from "astro:assets";
+import ThemeSwitcher from "./ThemeSwitcher";
+import MainImage from "@images/dark-face.png";
+---
+
+<header class="group relative flex p-4">
+    <div class="mx-auto flex w-full max-w-6xl items-center justify-between">
+        <a href="/" title="Home page" class="flex items-center gap-4">
+            <div class="flex-shrink-0">
+                <Picture src={MainImage} alt="Jeffrey J. C. N. Salcedo Rivera" loading="eager" class="h-10 w-10 rounded-full" />
+            </div>
+            <span class="text-xl">Quetzal Developer</span>
+        </a>
+        <div class="flex gap-4">
+            <nav class="absolute left-0 top-full hidden group-data-[state=opened]:block md:relative md:block">
+                <ul class="flex w-screen flex-col gap-4 bg-gray-50 p-4 pt-0 shadow dark:bg-gray-950 dark:shadow-gray-700 md:w-auto md:flex-row md:bg-transparent md:p-0 md:shadow-none">
+                    <li><a href="/" title="Home page">Home</a></li>
+                    <li><a href="/blog" title="Blog">Blog</a></li>
+                    <li><a href="/projects" title="Explore my projects">Projects</a></li>
+                    <li><a href="/about" title="About me">About</a></li>
+                </ul>
+            </nav>
+            <ThemeSwitcher client:idle />
+            <button title="Toggle menu" type="button" class="flex md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="m-auto">
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<script>
+    import { attachExitListener } from "@shared/client";
+
+    const loadHamburgerMenu = () => {
+        const header = document.querySelector("header");
+        if (header) {
+            let controller: AbortController | undefined;
+            const buttons = header.querySelectorAll("button");
+            const hamBurgerBtn = buttons.item(1);
+            hamBurgerBtn?.addEventListener("click", () => {
+                controller?.abort();
+                header.dataset.state = header.dataset.state === "opened" ? "closed" : "opened";
+                // Close the menu if the user clicks outside of it
+                if (header.dataset.state === "opened") {
+                    controller = new AbortController();
+                    attachExitListener(
+                        header,
+                        () => {
+                            header.dataset.state = "closed";
+                            controller?.abort();
+                        },
+                        { signal: controller.signal },
+                    );
+                }
+            });
+        }
+    };
+
+    document.addEventListener("astro:after-swap", loadHamburgerMenu);
+    loadHamburgerMenu();
+</script>

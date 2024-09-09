@@ -1,0 +1,18 @@
+---
+// layouts/LegalLayout.astro
+import Layout from "./BaseLayout.astro";
+import type { LayoutProps } from "@shared/models";
+
+interface Props extends LayoutProps {}
+---
+
+<Layout {...Astro.props}>
+    <div class="flex">
+        <div class="mx-auto w-full max-w-5xl p-6">
+            <h1 class="mb-2 text-xl font-semibold">About me</h1>
+            <div class="text-lg">
+                <slot />
+            </div>
+        </div>
+    </div>
+</Layout>
