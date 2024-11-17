@@ -12,26 +12,26 @@
         "astro": "astro"
     },
     "dependencies": {
-        "@astrojs/check": "^0.9.3",
-        "@astrojs/rss": "^4.0.7",
-        "@astrojs/sitemap": "^3.1.6",
-        "@astrojs/solid-js": "^4.4.1",
-        "@astrojs/tailwind": "^5.1.0",
-        "astro": "^4.15.4",
-        "solid-js": "^1.8.22"
+        "@astrojs/check": "^0.9.4",
+        "@astrojs/rss": "^4.0.9",
+        "@astrojs/sitemap": "^3.2.1",
+        "@astrojs/solid-js": "^4.4.3",
+        "@astrojs/tailwind": "^5.1.2",
+        "astro": "^4.16.13",
+        "solid-js": "^1.9.3"
     },
     "devDependencies": {
-        "@stylistic/eslint-plugin": "^2.7.2",
-        "eslint": "^9.10.0",
+        "@stylistic/eslint-plugin": "^2.10.1",
+        "eslint": "9.14.0",
         "prettier": "^3.3.3",
         "prettier-plugin-astro": "^0.14.1",
-        "prettier-plugin-tailwindcss": "^0.6.6",
-        "sass": "^1.78.0",
+        "prettier-plugin-tailwindcss": "^0.6.8",
+        "sass": "^1.81.0",
         "schema-dts": "^1.1.2",
         "sharp": "^0.33.5",
-        "tailwindcss": "^3.4.10",
-        "tsx": "^4.19.0",
-        "typescript": "^5.5.4",
-        "typescript-eslint": "^8.4.0"
+        "tailwindcss": "^3.4.15",
+        "tsx": "^4.19.2",
+        "typescript": "^5.6.3",
+        "typescript-eslint": "^8.14.0"
     }
 }
