@@ -8,12 +8,14 @@ import Comments from "@components/Comments.astro";
 import ShareButton from "@components/ShareButton";
 import Layout from "@layouts/BaseLayout.astro";
 import { createUri } from "@shared/utilities";
+import { getEntry } from "astro:content";
+import { render } from "astro:content";
 
 export const getStaticPaths = (async () => {
     const posts = await getCollection("blog");
 
     return posts.map((entry) => ({
-        params: { slug: entry.slug },
+        params: { slug: entry.id },
         props: {
             entry,
         },
@@ -30,7 +32,9 @@ const schema: BlogPosting = {
     description,
     image: imageUrl.toString(),
 };
-const { Content } = await Astro.props.entry.render();
+const post = await getEntry("blog", Astro.params.slug);
+if (!post) return null;
+const { Content } = await render(post);
 ---
 
 <Layout title={title} description={description} imageUrl={imageUrl.toString()} schema={schema}>
@@ -63,7 +67,7 @@ const { Content } = await Astro.props.entry.render();
                         <ShareButton text={title} url={canonicalURL.toString()} client:visible />
                     </div>
                 </div>
-                <Comments canonicalUrl={canonicalURL} identifier={Astro.props.entry.slug} />
+                <Comments canonicalUrl={canonicalURL} identifier={Astro.props.entry.id} />
             </footer>
         </article>
     </div>

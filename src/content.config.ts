@@ -1,12 +1,13 @@
 /**
- * Name: content/config.ts
+ * Name: content.config.ts
  * Description: Configuration file for the collection schema
  */
 
 import { z, defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 
-const blogCollection = defineCollection({
-    type: "content",
+const blog = defineCollection({
+    loader: glob({ base: "./src/data/blog", pattern: "**/*.md" }),
     schema: ({ image }) => z.object({
         title: z.string(),
         description: z.string(),
@@ -16,8 +17,8 @@ const blogCollection = defineCollection({
     }),
 });
 
-const projectsCollection = defineCollection({
-    type: "data",
+const projects = defineCollection({
+    loader: glob({ base: "./src/data/projects", pattern: "**/*.json" }),
     schema: z.object({
         name: z.string(),
         description: z.string(),
@@ -26,7 +27,4 @@ const projectsCollection = defineCollection({
     }),
 });
 
-export const collections = {
-    blog: blogCollection,
-    projects: projectsCollection,
-};
+export const collections = { blog, projects };

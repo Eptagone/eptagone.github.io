@@ -30,7 +30,7 @@ export const getStaticPaths = (async () => {
                 const group = acc.find((p) => p.tag === tag);
                 const summary = {
                     ...post.data,
-                    link: `blog/${post.slug}`,
+                    link: `blog/${post.id}`,
                 };
                 if (group) {
                     group.posts.push(summary);

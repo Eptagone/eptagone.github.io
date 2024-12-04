@@ -3,7 +3,7 @@
 import { getImage } from "astro:assets";
 import type { LayoutProps } from "@shared/models";
 import { Header, Footer } from "@components/global";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import MainImage from "@images/dark-face.png";
 import type { Thing } from "schema-dts";
 
@@ -62,7 +62,7 @@ const ldSchema: Thing = Astro.props.schema ?? {
             document.documentElement.classList[localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "add" : "remove"]("dark");
         </script>
 
-        <ViewTransitions />
+        <ClientRouter />
 
         {/* Aditional HEAD elements */}
         <slot name="head" />
