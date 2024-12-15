@@ -1,7 +1,3 @@
-/**
- * Name: ShareButton.tsx
- */
-
 import type { Component } from "solid-js";
 
 interface Props {
@@ -17,7 +13,7 @@ interface Props {
 
 /**
  * Represents a share button component.
- * @param props The properties for the component.
+ * @param props - The properties for the component.
  * @returns
  */
 const ShareButton: Component<Props> = (props) => {

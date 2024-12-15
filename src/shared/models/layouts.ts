@@ -1,7 +1,3 @@
-/**
- * Name: shared/models/layouts.ts
- */
-
 import type Schema from "schema-dts";
 
 /**

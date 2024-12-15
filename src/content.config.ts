@@ -1,8 +1,3 @@
-/**
- * Name: content.config.ts
- * Description: Configuration file for the collection schema
- */
-
 import { z, defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 

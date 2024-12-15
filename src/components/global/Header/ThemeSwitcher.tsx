@@ -1,9 +1,8 @@
-/**
- * Name: components/global/Header/ThemeSwitcher.tsx
- */
-
 import type { Component } from "solid-js";
 
+/**
+ * Represents a theme switcher.
+ */
 const ThemeSwitcher: Component = () => {
     const switchTheme = () => {
         document.documentElement.classList.toggle("dark");

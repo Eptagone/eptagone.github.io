@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://json.schemastore.org/lefthook.json
+
+pre-push:
+  parallel: true
+  commands:
+    astro-check:
+      glob: "*.{ts,tsx,astro,scss}"
+      run: pnpm dlx astro check
+    elint:
+      glob: "*.{ts,tsx,astro,scss}"
+      run: pnpm dlx eslint src

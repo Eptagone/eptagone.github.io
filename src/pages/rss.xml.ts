@@ -1,8 +1,3 @@
-/**
- * Name: rss.xml.ts
- * Description: RSS feed for the blog
- */
-
 import rss, { type RSSFeedItem } from "@astrojs/rss";
 import type { APIContext } from "astro";
 import { getCollection } from "astro:content";

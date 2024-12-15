@@ -1,7 +1,3 @@
-/**
- * Name: pages/robots.txt.ts
- */
-
 import type { APIRoute } from "astro";
 
 const domain = new URL(import.meta.env.SITE).hostname;

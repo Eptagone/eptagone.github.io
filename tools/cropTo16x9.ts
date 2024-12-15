@@ -1,8 +1,3 @@
-/**
- * Name: cropTo16x9.ts
- * Description: Crop the given image to 16x9.
- */
-
 import sharp from "sharp";
 import { cropImage } from "./shared";
 

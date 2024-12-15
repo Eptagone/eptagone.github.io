@@ -1,16 +1,15 @@
-/**
- * Name: eslint.config.js
- * Description: Configuration for ESLint.
- */
-
 import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 import stylistic from "@stylistic/eslint-plugin";
+import tsdoc from "eslint-plugin-tsdoc";
 
 export default tseslint.config(
     eslint.configs.recommended,
     ...tseslint.configs.recommendedTypeChecked,
     {
+        plugins: {
+            tsdoc,
+        },
         languageOptions: {
             parserOptions: {
                 projectService: true,
@@ -25,6 +24,7 @@ export default tseslint.config(
     }),
     {
         rules: {
+            "tsdoc/syntax": "warn",
             "no-case-declarations": "off",
             "@typescript-eslint/no-unused-vars": [
                 "error",

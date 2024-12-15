@@ -1,8 +1,3 @@
-/**
- * Name: cropImage.ts
- * Description: Crop the given image to the given size.
- */
-
 import { cropImage } from "./shared";
 
 if (process.argv.length < 4 || process.argv.length > 5) {
