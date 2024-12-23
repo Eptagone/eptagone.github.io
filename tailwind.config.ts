@@ -1,8 +1,3 @@
-/**
- * Name: tailwindcss.config.ts
- * Description: TailwindCSS configuration file.
- */
-
 import type { Config } from "tailwindcss";
 
 export default {

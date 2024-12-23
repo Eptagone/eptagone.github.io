@@ -18,6 +18,7 @@ export default tseslint.config(
         },
     },
     stylistic.configs.customize({
+        flat: true,
         indent: 4,
         quotes: "double",
         semi: true,
