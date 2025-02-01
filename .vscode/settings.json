@@ -1,15 +1,15 @@
 {
     "[astro]": {
         "editor.defaultFormatter": "astro-build.astro-vscode",
-        "editor.formatOnSave": true
     },
     "[typescript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features",
-        "editor.formatOnSave": true
     },
+    "editor.formatOnSave": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit"
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "explicit",
     },
     "eslint.useFlatConfig": true,
     "files.eol": "\n",
@@ -26,7 +26,11 @@
     },
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
+    "files.associations": {
+        "globals.css": "tailwindcss"
+    },
     "npm.packageManager": "pnpm",
+    "tailwindCSS.experimental.configFile": "src/globals.css",
     "typescript.referencesCodeLens.enabled": true,
     "typescript.tsdk": "node_modules/typescript/lib",
 }

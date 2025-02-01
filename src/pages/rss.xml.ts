@@ -1,7 +1,7 @@
 import rss, { type RSSFeedItem } from "@astrojs/rss";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@shared/constants";
 import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@shared/constants";
 
 export async function GET(context: APIContext) {
     const blog = await getCollection("blog");
