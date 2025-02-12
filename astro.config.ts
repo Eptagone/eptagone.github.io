@@ -10,7 +10,11 @@ export default defineConfig({
     build: {
         format: "file",
     },
-    integrations: [sitemap(), solidJs()],
+    integrations: [
+        sitemap({
+            filter: url => !url.match(/https:\/\/eptagone\.dev\/tags/),
+        }),
+        solidJs()],
     vite: {
         plugins: [tailwindcss()],
     },
