@@ -1,36 +1,26 @@
 {
     "[astro]": {
-        "editor.defaultFormatter": "astro-build.astro-vscode",
+        "editor.defaultFormatter": "astro-build.astro-vscode"
     },
     "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "editor.formatOnSave": true,
-    "diffEditor.ignoreTrimWhitespace": false,
+    "[tailwindcss]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit",
-        "source.organizeImports": "explicit",
+        "source.organizeImports": "explicit"
     },
-    "eslint.useFlatConfig": true,
-    "files.eol": "\n",
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "**/node_modules": true,
-        "**/dist": true,
-        "**/.astro": true
-    },
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.associations": {
-        "globals.css": "tailwindcss"
-    },
+    "editor.formatOnSave": true,
     "npm.packageManager": "pnpm",
-    "tailwindCSS.experimental.configFile": "src/globals.css",
+    "eslint.useFlatConfig": true,
     "typescript.referencesCodeLens.enabled": true,
     "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "tailwindCSS.experimental.configFile": "src/globals.css"
 }

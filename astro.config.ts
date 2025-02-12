@@ -6,6 +6,10 @@ import { defineConfig } from "astro/config";
 // https://astro.build/config
 export default defineConfig({
     site: "https://eptagone.dev",
+    trailingSlash: "never",
+    build: {
+        format: "file",
+    },
     integrations: [sitemap(), solidJs()],
     vite: {
         plugins: [tailwindcss()],
