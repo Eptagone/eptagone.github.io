@@ -1,11 +1,14 @@
 import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
 import stylistic from "@stylistic/eslint-plugin";
+import jsdoc from "eslint-plugin-jsdoc";
 import tsdoc from "eslint-plugin-tsdoc";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
     eslint.configs.recommended,
     ...tseslint.configs.recommendedTypeChecked,
+    jsdoc.configs["flat/contents-typescript"],
+    jsdoc.configs["flat/logical-typescript"],
     {
         plugins: {
             tsdoc,
@@ -26,6 +29,7 @@ export default tseslint.config(
     {
         rules: {
             "tsdoc/syntax": "warn",
+            "tjsdoc/text-escaping": "off",
             "no-case-declarations": "off",
             "@typescript-eslint/no-unused-vars": [
                 "error",
