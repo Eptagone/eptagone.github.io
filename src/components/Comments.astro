@@ -33,3 +33,17 @@ const { identifier, canonicalUrl } = Astro.props;
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<style>
+    #disqus_thread {
+        background-color: #fff;
+        color: #000;
+    }
+
+    :root.dark {
+        #disqus_thread {
+            background-color: #101828;
+            color: #fff;
+        }
+    }
+</style>
