@@ -26,7 +26,7 @@ const ShareButton: Component<Props> = (props) => {
     };
 
     return (
-        <button type="button" class="flex gap-2" onClick={share}>
+        <button type="button" class="flex cursor-pointer gap-2" onClick={share}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="18" cy="5" r="3"></circle>
                 <circle cx="6" cy="12" r="3"></circle>
