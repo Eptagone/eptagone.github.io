@@ -27,7 +27,18 @@ const schema: BlogPosting = {
     "@id": `${canonicalURL}#blogpost`,
     name: title,
     description,
+    url: canonicalURL.toString(),
     image: imageUrl.toString(),
+    dateCreated: publishDate.toISOString(),
+    datePublished: publishDate.toISOString(),
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `${canonicalURL}#webpage`,
+    },
+    author: {
+        "@type": "Person",
+        name: "Quetzal Rivera",
+    },
 };
 const post = await getEntry("blog", Astro.params.slug);
 if (!post) return null;

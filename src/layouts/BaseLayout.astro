@@ -18,7 +18,13 @@ const ldSchema: Thing = Astro.props.schema ?? {
     "@type": "WebPage",
     "@id": `${canonicalURL}#webpage`,
     name: title,
+    url: canonicalURL.toString(),
+    image: imageUrl.toString(),
     description,
+    author: {
+        "@type": "Person",
+        name: "Quetzal Rivera",
+    },
 };
 const pageType = Astro.props.type ?? "website";
 ---
