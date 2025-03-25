@@ -10,7 +10,7 @@ image: ./featured-image_1280x720.png
 
 Of course, we can integrate Vite to our ASP.NET projects and we doesn't require to use SPA. I want to clarify this because currently there are few examples on the internet and most of them integrate Vite into SPA applications with ASP.NET as an API. That's not a bad thing, but you should also know that we can actually use Vite as a bundler with Razor Pages, MVC, or Blazor Server.
 
-### How to setup your project
+## How to setup your project
 
 In this little guide I will help you to configure your ASPNET project so that you can start using Vite as a bundler.
 
@@ -153,7 +153,7 @@ npm run dev
 
 At this point, you're ready to use Vite in your ASP NET projects, but you can still improve it.
 
-### Automation and improvements
+## Automation and improvements
 
 We can integrate the assets build process in our publish process by adding these lines in out ASPNET project file (csproj).
 

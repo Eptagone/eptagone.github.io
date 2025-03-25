@@ -34,7 +34,8 @@ if (!post) return null;
 const { Content } = await render(post);
 ---
 
-<Layout title={title} description={description} imageUrl={imageUrl.toString()} schema={schema}>
+<Layout title={title} description={description} imageUrl={imageUrl.toString()} type="article" schema={schema}>
+    <meta slot="head" name="article:published_time" content={publishDate.toISOString()} />
     <div class="flex p-4">
         <article class="mx-auto w-full max-w-5xl rounded bg-white p-8 dark:bg-gray-900">
             <header>

@@ -18,6 +18,11 @@ export interface LayoutProps {
     imageUrl?: string | null;
 
     /**
+     * Optional. Specifies the type of the current page.
+     */
+    type?: "website" | "article";
+
+    /**
      * Optional. Specifies the schema of the current page.
      * @see https://schema.org/
      */
