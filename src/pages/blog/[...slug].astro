@@ -6,7 +6,7 @@ import { createUri } from "@shared/utilities";
 import type { GetStaticPaths } from "astro";
 import { Picture } from "astro:assets";
 import { getCollection, getEntry, render } from "astro:content";
-import type { BlogPosting } from "schema-dts";
+import type { BlogPosting, WithContext } from "schema-dts";
 
 export const getStaticPaths = (async () => {
     const posts = await getCollection("blog");
@@ -22,7 +22,8 @@ export const getStaticPaths = (async () => {
 const { title, description, image, publishDate } = Astro.props.entry.data;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const imageUrl = new URL(image.src, Astro.site);
-const schema: BlogPosting = {
+const schema: WithContext<BlogPosting> = {
+    "@context": "https://schema.org",
     "@type": "BlogPosting",
     "@id": `${canonicalURL}#blogpost`,
     name: title,

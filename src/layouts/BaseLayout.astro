@@ -5,7 +5,7 @@ import type { LayoutProps } from "@shared/models";
 import { Header, Footer } from "@components/global";
 import { ClientRouter } from "astro:transitions";
 import MainImage from "@images/dark-face.png";
-import type { Thing } from "schema-dts";
+import type { Thing, WithContext } from "schema-dts";
 
 interface Props extends LayoutProps {}
 const Icon = await getImage({ src: MainImage, width: 32, height: 32 });
@@ -14,7 +14,8 @@ const { title, description } = Astro.props;
 const imageUrl = new URL(Astro.props.imageUrl || MainImage.src, Astro.url);
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ldSchema: Thing = Astro.props.schema ?? {
+const ldSchema: WithContext<Thing> = Astro.props.schema ?? {
+    "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${canonicalURL}#webpage`,
     name: title,

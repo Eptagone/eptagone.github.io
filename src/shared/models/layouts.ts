@@ -1,4 +1,5 @@
 import type Schema from "schema-dts";
+import type { WithContext } from "schema-dts";
 
 /**
  * Defines the base properties of a layout.
@@ -26,5 +27,5 @@ export interface LayoutProps {
      * Optional. Specifies the schema of the current page.
      * @see https://schema.org/
      */
-    schema?: Schema.Thing;
+    schema?: WithContext<Exclude<Schema.Thing, string>>;
 }

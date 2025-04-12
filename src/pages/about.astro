@@ -1,11 +1,12 @@
 ---
 import Layout from "@layouts/LegalLayout.astro";
-import type { AboutPage } from "schema-dts";
+import type { AboutPage, WithContext } from "schema-dts";
 const title = "About me";
 const description = "About me and this blog.";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const schema: AboutPage = {
+const schema: WithContext<AboutPage> = {
+    "@context": "https://schema.org",
     "@type": "AboutPage",
     "@id": `${canonicalURL}#webpage`,
     name: title,
